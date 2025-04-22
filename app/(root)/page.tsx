@@ -1,19 +1,34 @@
-export default function Home() {
+import SearchForm from "@/components/SearchForm";
+
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string }>;
+}) {
+  const query = (await searchParams).query;
   return (
     <>
-      <div className="bg-navy flex flex-col items-center h-80">
-        <div className="flex flex-col items-center px-5 my-6">
-          <div className="bg-lightblue font-work-sans ">
-            <h3>WRITE, SHARE, INSPIRE</h3>
+      <section className="navy-container">
+        <div className="flex flex-col items-center  gap-2 w-full max-w-3xl">
+          <div className="lightblue-container">
+            <h3 className="p-2.5 px-4">WRITE, SHARE, INSPIRE</h3>
           </div>
-          <h2>SHARE YOUR THOUGHTS, CONNECT THROUGH STORIES</h2>
-          <p>
-            Write articles, explore perspectives, and build your personal
-            journal in a creative community.
-          </p>
+          <div className="lightnavy-container">
+            <h2 className="text-center  py-6 text-3xl">
+              SHARE YOUR THOUGHTS,
+              <br /> CONNECT THROUGH STORIES
+            </h2>
+          </div>
+          <div className="text-white font-work-sans font-medium text-center w-5/6 mt-2">
+            <p>
+              Write articles, explore perspectives, and build your personal
+              journal.
+            </p>
+          </div>
         </div>
-        <div> search bar disini</div>
-      </div>
+        <SearchForm query={query} />
+      </section>
+      <section className="section-container"></section>
     </>
   );
 }
