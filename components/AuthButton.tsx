@@ -11,14 +11,14 @@ interface AuthButtonProps {
 
 const AuthButton = ({ session }: AuthButtonProps) => {
   return (
-    <div className="flex items-center text-black gap-5">
+    <div className="flex items-center text-black gap-7">
       {session?.user ? (
         <>
           <Link href="/startup/create">
             <span>Create</span>
           </Link>
 
-          <button onClick={() => signOut()}>
+          <button onClick={signOut}>
             <span>Logout</span>
           </button>
 
