@@ -1,4 +1,5 @@
 import SearchForm from "@/components/SearchForm";
+import ArticleCard from "@/components/ArticleCard";
 
 export default async function Home({
   searchParams,
@@ -6,6 +7,21 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+
+  const posts = [
+    {
+      _createdAt: new Date(),
+      views: 55,
+      author: { _id: 1, name: "Damars" },
+      _id: 1,
+      description:
+        "This is description tak panjangkan dikit biar kelihatan full test 123 aaaaaaawgefijmgoewjiogewhgowehgweoihgwieohgwioehwiohoihfhoiahfoiwahfiowahfwioaa",
+      image:
+        "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?q=80&w=810&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Technology",
+      title: "This place title",
+    },
+  ];
   return (
     <>
       <section className="navy-container">
@@ -28,7 +44,20 @@ export default async function Home({
         </div>
         <SearchForm query={query} />
       </section>
-      <section className="section-container"></section>
+      <section className="section-container">
+        <p className="font-work-sans font-semibold text-xl">
+          {query ? `Search Article from ${query}` : "All Article"}
+        </p>
+        <ul className="card_grid">
+          {posts?.length > 0 ? (
+            posts.map((post: ArticleTypeCard) => (
+              <ArticleCard key={post?._id} post={post} />
+            ))
+          ) : (
+            <p>No Startup Found</p>
+          )}
+        </ul>
+      </section>
     </>
   );
 }

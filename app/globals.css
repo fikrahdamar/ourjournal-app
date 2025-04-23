@@ -156,4 +156,22 @@
   .section-container {
     @apply px-6 py-10 max-w-7xl mx-auto;
   }
+  .card_grid {
+    @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
+  }
+  .startup-card {
+    @apply bg-white border-[2px] py-6 px-5 rounded-[22px] shadow-md border-lightnavy  transition-all duration-500 hover:shadow-navy/50 hover:bg-slate-500;
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  .startup-card_img {
+    @apply w-full h-[180px] rounded-[10px] object-cover;
+  }
+  .startup-card_btn {
+    @apply rounded-full bg-stone-600 font-medium text-[16px] text-white px-5 py-3;
+  }
+  .startup-card_desc {
+    @apply font-normal text-[16px] line-clamp-2 my-3 text-black break-all;
+  }
 }
