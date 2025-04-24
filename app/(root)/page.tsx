@@ -1,7 +1,7 @@
 import SearchForm from "@/components/SearchForm";
-import ArticleCard from "@/components/ArticleCard";
-import { client } from "@/sanity/lib/client";
+import ArticleCard, { ArticleTypeCard } from "@/components/ArticleCard";
 import { ARTICLE_QUERY } from "@/sanity/lib/queries";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
 export default async function Home({
   searchParams,
@@ -9,7 +9,8 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
-  const posts = await client.fetch(ARTICLE_QUERY);
+  const params = { search: query || null };
+  const { data: posts } = await sanityFetch({ query: ARTICLE_QUERY, params });
 
   return (
     <>
@@ -35,7 +36,7 @@ export default async function Home({
       </section>
       <section className="section-container">
         <p className="font-work-sans font-semibold text-xl">
-          {query ? `Search Article from ${query}` : "All Article"}
+          {query ? `Search Article for "${query}"` : "All Article"}
         </p>
         <ul className="card_grid">
           {posts?.length > 0 ? (
@@ -47,6 +48,7 @@ export default async function Home({
           )}
         </ul>
       </section>
+      <SanityLive />
     </>
   );
 }
