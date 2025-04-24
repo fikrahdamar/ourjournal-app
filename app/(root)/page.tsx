@@ -1,5 +1,7 @@
 import SearchForm from "@/components/SearchForm";
 import ArticleCard from "@/components/ArticleCard";
+import { client } from "@/sanity/lib/client";
+import { ARTICLE_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({
   searchParams,
@@ -7,21 +9,8 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const posts = await client.fetch(ARTICLE_QUERY);
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: "Damars" },
-      _id: 1,
-      description:
-        "This is description tak panjangkan dikit biar kelihatan full test 123 aaaaaaawgefijmgoewjiogewhgowehgweoihgwieohgwioehwiohoihfhoiahfoiwahfiowahfwioaa",
-      image:
-        "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?q=80&w=810&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      category: "Technology",
-      title: "This place title",
-    },
-  ];
   return (
     <>
       <section className="navy-container">
