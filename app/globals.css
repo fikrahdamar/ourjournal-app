@@ -145,7 +145,7 @@
     @apply size-[38px] rounded-full bg-black flex justify-center items-center;
   }
   .navy-container {
-    @apply bg-navy flex flex-col items-center min-h-80;
+    @apply bg-navy flex flex-col items-center min-h-50;
   }
   .lightblue-container {
     @apply bg-lightblue font-work-sans rounded-sm font-bold mt-5;
@@ -173,5 +173,17 @@
   }
   .startup-card_desc {
     @apply font-normal text-[16px] line-clamp-2 my-3 text-black break-all;
+  }
+  .category-tag {
+    @apply font-medium text-[20px] bg-lightnavy/40 px-4 py-2 rounded-full;
+  }
+  .view_skeleton {
+    @apply bg-zinc-400 h-10 w-24 rounded-lg fixed bottom-3 right-3;
+  }
+  .view-container {
+    @apply flex justify-end items-center mt-5 fixed bottom-3 right-3;
+  }
+  .view-text {
+    @apply font-medium text-[16px] bg-lightnavy/30 px-4 py-2 rounded-lg capitalize;
   }
 }

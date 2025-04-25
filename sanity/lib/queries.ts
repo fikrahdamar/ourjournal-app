@@ -23,7 +23,7 @@ export const ARTICLE_BY_ID_QUERY =
     slug,
     _createdAt,
     author -> {
-      _id, name, image, bio
+      _id, name, image, bio, username
     },
     views,
     description,
@@ -33,3 +33,7 @@ export const ARTICLE_BY_ID_QUERY =
     
     
 }`);
+
+export const ARTICLE_VIEWS_QUERY =
+  defineQuery(`*[_type=="article" && _id==$id ][0] {
+  _id, views}`);
