@@ -33,7 +33,7 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
           <Link href={`/user/${author?._id}`}>
             <p className="font-work-sans font-medium">{author?.name}</p>
           </Link>
-          <Link href={`/startup/${_id}`}>
+          <Link href={`/article/${_id}`}>
             <h3 className="font-work-sans font-bold">{title}</h3>
           </Link>
         </div>
@@ -48,7 +48,7 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
         </Link>
       </div>
       <div className="flex-between mt-4">
-        <Link href={`/startup/${_id}`}>
+        <Link href={`/article/${_id}`}>
           <p className="startup-card_desc ">{description}</p>
           <img src={image} alt="placeholder" className="startup-card_img" />
         </Link>
@@ -58,7 +58,7 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
           <p>{category}</p>
         </Link>
         <Button className="startup-card_btn " asChild>
-          <Link href={`/startup/${_id}`}>Details</Link>
+          <Link href={`/article/${_id}`}>Details</Link>
         </Button>
       </div>
     </li>
