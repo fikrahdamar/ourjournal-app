@@ -9,12 +9,14 @@ import { Send } from "lucide-react";
 import { formSchema } from "@/lib/validation";
 import { z } from "zod";
 import { toast } from "sonner";
-import { useRouter } from "next/router";
+
+import { createPitch } from "@/lib/action";
+import { useRouter } from "next/navigation";
 
 const ArticleForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState("");
-  //   const router = useRouter();
+  const router = useRouter();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleFormSubmit = async (prevState: any, formData: FormData) => {
@@ -26,15 +28,16 @@ const ArticleForm = () => {
         link: formData.get("link") as string,
         pitch,
       };
+
       await formSchema.parseAsync(formValues);
       console.log(formValues);
-      //   const result = await createIdea(prevState, formData, pitch);
-      //   console.log(result);
-      //   if (result.status == "SUCCES") {
-      //     toast("Your article has been submitted");
-      //     router.push(`/startup/${result.id}`);
-      //   }
-      //   return result;
+      const result = await createPitch(prevState, formData, pitch);
+      console.log(result);
+      if (result.status == "SUCCESS") {
+        toast("Your article has been submitted");
+        router.push(`/article/${result._id}`);
+      }
+      return result;
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
@@ -42,6 +45,7 @@ const ArticleForm = () => {
         toast.error("Please check the form fields");
         return { ...prevState, error: "Validation vailed", status: "ERROR" };
       }
+
       toast.error("Please check the form fields");
       return {
         ...prevState,
