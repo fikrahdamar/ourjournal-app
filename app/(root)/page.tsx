@@ -48,7 +48,7 @@ export default async function Home({
               <ArticleCard key={post?._id} post={post} />
             ))
           ) : (
-            <p>No Startup Found</p>
+            <p>No Article Found</p>
           )}
         </ul>
       </section>

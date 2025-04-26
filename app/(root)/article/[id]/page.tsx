@@ -19,7 +19,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const post = await client.fetch(ARTICLE_BY_ID_QUERY, { id });
 
   if (!post) return notFound();
-  const parsedContent = md.render(post?.pitch || "");
+  const parsedContent = md.render(post.pitch || "");
 
   return (
     <>
@@ -71,8 +71,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
           </h3>
           {parsedContent ? (
             <article
-              dangerouslySetInnerHTML={{ __html: parsedContent }}
               className="prose font-work-sans break-all max-w-4xl pb-8"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
           ) : (
             <p>No detail provided</p>
