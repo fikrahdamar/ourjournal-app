@@ -14,7 +14,7 @@ const AuthButton = ({ session }: AuthButtonProps) => {
     <div className="flex items-center text-black gap-7">
       {session?.user ? (
         <>
-          <Link href="/startup/create">
+          <Link href="/article/create">
             <span>Create</span>
           </Link>
 

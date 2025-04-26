@@ -186,4 +186,22 @@
   .view-text {
     @apply font-medium text-[16px] bg-lightnavy/30 px-4 py-2 rounded-lg capitalize;
   }
+  .article-form {
+    @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+  }
+  .article-form_input {
+    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-stone-500;
+  }
+  .article-form_error {
+    @apply text-red-500 mt-2 ml-5;
+  }
+  .article-form_textarea {
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-stone-300;
+  }
+  .article-form_btn {
+    @apply bg-navy  rounded-full p-5 min-h-[70px] w-full font-bold font-work-sans text-[40px];
+  }
+  .article-form_label {
+    @apply font-bold text-[18px] text-black uppercase font-work-sans;
+  }
 }
