@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import { formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { Eye } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Article, Author } from "@/sanity/types";
+import { Skeleton } from "./ui/skeleton";
 
 export type ArticleTypeCard = Omit<Article, "author"> & { author?: Author };
 
@@ -39,20 +40,20 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src={"https://placehold.co/48x48"}
-            alt="placeholder"
+            src={author?.image ?? "https://placehold.co/48x48"}
+            alt={author?.name ?? "Anonymous"}
             width={48}
             height={48}
             className="rounded-full"
           />
         </Link>
       </div>
-      <div className="flex-between mt-4">
-        <Link href={`/article/${_id}`}>
-          <p className="startup-card_desc ">{description}</p>
+      <Link href={`/article/${_id}`} className="block w-full mt-6">
+        <div className="flex flex-col">
+          <p className="startup-card_desc">{description}</p>
           <img src={image} alt="placeholder" className="startup-card_img" />
-        </Link>
-      </div>
+        </div>
+      </Link>
       <div className="flex-between gap-3 mt-5">
         <Link href={`/?query=${category?.toLowerCase()}`}>
           <p>{category}</p>
@@ -64,5 +65,15 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
     </li>
   );
 };
+
+export const ArticleCardSkeleton = () => (
+  <>
+    {[0, 1, 2, 3, 4].map((index) => (
+      <li key={cn("skeleton", index)}>
+        <Skeleton className="article-card_skeleton" />
+      </li>
+    ))}
+  </>
+);
 
 export default ArticleCard;

@@ -167,7 +167,7 @@
     @apply flex justify-between items-center;
   }
   .startup-card_img {
-    @apply w-full h-[164px] rounded-[10px] object-cover;
+    @apply w-full h-[250px] rounded-[10px] object-cover;
   }
   .startup-card_btn {
     @apply rounded-full bg-stone-600 font-medium text-[16px] text-white px-5 py-3;
@@ -204,5 +204,17 @@
   }
   .article-form_label {
     @apply font-bold text-[18px] text-black uppercase font-work-sans;
+  }
+  .profile_container {
+    @apply w-full pb-10 pt-20 px-6 max-w-7xl mx-auto lg:flex-row flex-col flex gap-10;
+  }
+  .profile_card {
+    @apply w-96 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-navy border-[5px] border-black shadow-2xl rounded-[30px] relative z-0 h-fit max-lg:w-full;
+  }
+  .profile_title {
+    @apply w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9  shadow-xl;
+  }
+  .article-card_skeleton {
+    @apply w-full h-96 rounded-[22px] bg-zinc-400;
   }
 }
