@@ -21,7 +21,7 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
     title,
   } = post;
   return (
-    <li className="startup-card group mt-5">
+    <li className="startup-card group mt-5 h-full">
       <div className="flex-between font-work-sans font-medium">
         <p>{formatDate(_createdAt)}</p>
         <div className="flex-between gap-2">
@@ -35,7 +35,9 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
             <p className="font-work-sans font-medium">{author?.name}</p>
           </Link>
           <Link href={`/article/${_id}`}>
-            <h3 className="font-work-sans font-bold">{title}</h3>
+            <h3 className="font-work-sans font-bold line-clamp-2 min-h-[48px]">
+              {title}
+            </h3>
           </Link>
         </div>
         <Link href={`/user/${author?._id}`}>
@@ -48,9 +50,12 @@ const ArticleCard = ({ post }: { post: ArticleTypeCard }) => {
           />
         </Link>
       </div>
-      <Link href={`/article/${_id}`} className="block w-full mt-6">
-        <div className="flex flex-col">
-          <p className="startup-card_desc">{description}</p>
+      <Link
+        href={`/article/${_id}`}
+        className=" w-full mt-6 flex flex-col flex-grow"
+      >
+        <p className="startup-card_desc">{description}</p>
+        <div className="mt-auto">
           <img src={image} alt="placeholder" className="startup-card_img" />
         </div>
       </Link>

@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
-import { ARTICLE_BY_ID_QUERY } from "@/sanity/lib/queries";
+import {
+  ARTICLE_BY_ID_QUERY,
+  PLAYLIST_BY_SLUG_QUERY,
+} from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -9,6 +12,7 @@ import React, { Suspense } from "react";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
+import ArticleCard, { ArticleTypeCard } from "@/components/ArticleCard";
 
 const md = markdownit();
 
@@ -16,7 +20,13 @@ export const experimental_ppr = true;
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
-  const post = await client.fetch(ARTICLE_BY_ID_QUERY, { id });
+
+  const [post, { select: bestPicks }] = await Promise.all([
+    client.fetch(ARTICLE_BY_ID_QUERY, { id }),
+    client.fetch(PLAYLIST_BY_SLUG_QUERY, {
+      slug: "best-picks",
+    }),
+  ]);
 
   if (!post) return notFound();
   const parsedContent = md.render(post.pitch || "");
@@ -80,6 +90,17 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         </div>
 
         <hr className="divider" />
+
+        {bestPicks.length > 0 && (
+          <div className="max-w-4xl mx-auto">
+            <p className="text-[30px] font-work-sans font-bold">Best Picks</p>
+            <ul className="grid sm:grid-cols-2 gap-5">
+              {bestPicks.map((post: ArticleTypeCard, index: number) => (
+                <ArticleCard key={index} post={post} />
+              ))}
+            </ul>
+          </div>
+        )}
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <View id={id} />
         </Suspense>
