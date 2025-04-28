@@ -1,4 +1,4 @@
-![](https://github.com/fikrahdamar/ourjournal-app/blob/master/public/logo.png?raw=true)
+![](https://github.com/fikrahdamar/ourjournal-app/blob/master/public/logo_readme.jpg?raw=true)
 
 # Article Directory
 
