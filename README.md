@@ -15,7 +15,7 @@ OurJournal adalah aplikasi berbasis web yang memungkinkan pengguna untuk membuat
 - ShadCN
 - TypeScript
 
-###Fitur
+### Fitur
 
 - **Live Content API dengan Sanity**: Menyediakan kemampuan untuk menyimpan dan menampilkan artikel secara real-time dengan menggunakan Sanity sebagai CMS.
 - **Login dengan GitHub**: Memudahkan pengguna untuk masuk dan mulai menggunakan aplikasi dengan akun GitHub mereka.
@@ -24,14 +24,15 @@ OurJournal adalah aplikasi berbasis web yang memungkinkan pengguna untuk membuat
 - **Search Bar**: Memudahkan pencarian artikel berdasarkan kata kunci atau kategori.
 - **Live Views Counter**: Menghitung dan menampilkan jumlah tampilan setiap artikel secara real-time.
 
-##Setup
+## Setup
+
 Pastikan telah menginstal aplikasi berikut ini pada komputer :
 
 - [npm](https://www.npmjs.com/)
 - [Node.js](https://nodejs.org/en)
 - [Git (Jika ingin fork)](https://git-scm.com/)
 
-#####Clone Repository
+##### Clone Repository
 
 ```javascript
 	git clone https://github.com/fikrahdamar/ourjournal-app.git
@@ -40,7 +41,8 @@ Pastikan telah menginstal aplikasi berikut ini pada komputer :
 install project dependencies menggunakan npm:
 `$ npm install`
 
-#####Setup Environment Variables
+##### Setup Environment Variables
+
 Buat file bernama .env.local di root dan tambahkan konten dibawah
 
     NEXT_PUBLIC_SANITY_PROJECT_ID=
