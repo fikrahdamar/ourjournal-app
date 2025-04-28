@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![](https://github.com/fikrahdamar/ourjournal-app/blob/master/public/logo.png?raw=true)
 
-## Getting Started
+# Article Directory
 
-First, run the development server:
+### Pendahuluan
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+OurJournal adalah aplikasi berbasis web yang memungkinkan pengguna untuk membuat, mengelola, dan membagikan artikel pribadi mereka dengan mudah. Pengguna dapat menambahkan foto, teks, dan berbagai elemen lainnya untuk membuat artikel mereka lebih menarik dan informatif. Aplikasi ini dirancang untuk memudahkan siapa saja yang ingin menulis dan berbagi ide mereka dalam format jurnal online yang terorganisir dengan baik.
+
+### Tech Stack
+
+- React 19
+- Next.js 15
+- Sanity
+- TailwindCSS
+- ShadCN
+- TypeScript
+
+###Fitur
+
+- **Live Content API dengan Sanity**: Menyediakan kemampuan untuk menyimpan dan menampilkan artikel secara real-time dengan menggunakan Sanity sebagai CMS.
+- **Login dengan GitHub**: Memudahkan pengguna untuk masuk dan mulai menggunakan aplikasi dengan akun GitHub mereka.
+- **Pitch Submission**: Pengguna dapat mengirimkan pitch berupa title, deskripsi, dan kategori untuk artikel mereka.
+- **Profil Page**: Setiap pengguna memiliki halaman profil pribadi yang menampilkan artikel dan informasi terkait.
+- **Search Bar**: Memudahkan pencarian artikel berdasarkan kata kunci atau kategori.
+- **Live Views Counter**: Menghitung dan menampilkan jumlah tampilan setiap artikel secara real-time.
+
+##Setup
+Pastikan telah menginstal aplikasi berikut ini pada komputer :
+
+- [npm](https://www.npmjs.com/)
+- [Node.js](https://nodejs.org/en)
+- [Git (Jika ingin fork)](https://git-scm.com/)
+
+#####Clone Repository
+
+```javascript
+	git clone https://github.com/fikrahdamar/ourjournal-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+install project dependencies menggunakan npm:
+`$ npm install`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#####Setup Environment Variables
+Buat file bernama .env.local di root dan tambahkan konten dibawah
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    NEXT_PUBLIC_SANITY_PROJECT_ID=
+    NEXT_PUBLIC_SANITY_DATASET=
+    NEXT_PUBLIC_SANITY_API_VERSION='vX'
+    SANITY_TOKEN=
 
-## Learn More
+    AUTH_SECRET=
+    AUTH_GITHUB_ID=
+    AUTH_GITHUB_SECRET=
 
-To learn more about Next.js, take a look at the following resources:
+install project dependencies menggunakan npm:
+`$ npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Note : Project ini adalah project yang dibuat untuk belajar (tanpa ada
+> komersial ) dan source codenya kurang lebih mirip dengan yang ada di youtube youtube
