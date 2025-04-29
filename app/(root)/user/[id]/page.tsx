@@ -41,7 +41,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         </div>
         <div className="flex-1 flex flex-col gap-5 lg:-mt-5">
           <p className="font-work-sans text-[30px] font-bold ">
-            {session?.id === id ? "Your" : "All"} Startups
+            {session?.id === id ? "Your" : "All"} Articles
           </p>
           <ul className="grid sm:grid-cols-2 gap-5">
             <Suspense fallback={<ArticleCardSkeleton />}>
